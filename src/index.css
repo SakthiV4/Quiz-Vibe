@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #142F32;
+    --bg-secondary: #0A1C1F;
+    --bg-tertiary: #1F4045;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #9BA8C1;
+
+    --accent-primary: #E3FFCC;
+    --accent-secondary: #FFFFFF;
+
+    --success: #E3FFCC;
+    --error: #FF6B6B;
+
+    --glass-border: rgba(255, 255, 255, 0.1);
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary font-display antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-bg-tertiary/60 backdrop-blur-md border border-glass-border rounded-3xl shadow-lg;
+  }
+
+  .glass-input {
+    @apply bg-bg-secondary/50 border border-glass-border rounded-xl px-4 py-3 text-text-primary placeholder-text-secondary outline-none focus:border-accent-primary transition-all;
+  }
+
+  .btn-primary {
+    @apply bg-accent-primary text-bg-primary font-bold px-6 py-3 rounded-full transition-all flex items-center justify-center gap-2;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(227, 255, 204, 0.3);
+  }
+
+  .btn-secondary {
+    @apply bg-bg-secondary border border-glass-border text-text-primary font-medium px-6 py-3 rounded-full hover:bg-bg-tertiary transition-all flex items-center justify-center gap-2;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-accent-primary;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
